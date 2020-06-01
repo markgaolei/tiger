@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaolei.cn.dao.GradeMapper">
+    <insert id="insert" parameterType="com.gaolei.cn.entities.Grade">
+        insert into grade(id,stu_num,score) values(#{id},#{stu_num},#{score})
+    </insert>
+    <select id="selectLike" resultType="com.gaolei.cn.entities.Grade">
+        select
+            id,stu_num,score
+        from
+            grade
+        where
+            id like concat('%',#{id},'%')
+    </select>
+    <select id="getAll" resultType="com.gaolei.cn.entities.Grade">
+        select
+            id,stu_num,score
+        from
+            grade
+    </select>
+</mapper>
